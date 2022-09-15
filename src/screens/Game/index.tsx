@@ -1,7 +1,7 @@
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useRoute, useNavigation } from '@react-navigation/native';
 import { Entypo } from '@expo/vector-icons';
-import { View,TouchableOpacity, Image, FlatList } from 'react-native';
+import { View,TouchableOpacity, Image, FlatList, Text } from 'react-native';
 import { useEffect, useState } from 'react';
 
 import { DuoCard, DuoCardProps } from '../../components/DuoCard';
@@ -67,8 +67,13 @@ export function Game() {
           )}
           horizontal
           style={styles.cointainerList}
-          contentContainerStyle ={styles.contentList}
+          contentContainerStyle ={[duos.length > 0 ? styles.contentList : styles.empyListContent]}
           showsHorizontalScrollIndicator = {false}
+          ListEmptyComponent={() => (
+            <Text style={styles.empyListText}>
+              Não há anúncios publicados para este game!
+            </Text>
+          )}
         />
       </SafeAreaView>
     </Background>
