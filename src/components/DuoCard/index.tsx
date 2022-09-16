@@ -38,7 +38,7 @@ export function DuoCard({data,onConect}:Props) {
             value={data.useVoiceChannel ? "Sim" : "Não"}
             colorValue={data.useVoiceChannel ? THEME.COLORS.SUCCESS : THEME.COLORS.ALERT}
         />
-        <TouchableOpacity style={styles.button}>
+        <TouchableOpacity style={styles.button} onPress={onConect}>
             <GameController 
                 color={THEME.COLORS.TEXT}
                 size={20}
